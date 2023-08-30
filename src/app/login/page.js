@@ -4,6 +4,7 @@ import InputComponent from "@/components/FormElements/InputComponent";
 import ComponentLevelLoader from "@/components/Loader/componentlevel";
 import Notification from "@/components/Notification";
 import { GlobalContext } from "@/context";
+import { login } from "@/sevices/login";
 import { loginFormControls } from "@/utils";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
@@ -40,7 +41,6 @@ export default function Login() {
   }
 
   async function handleLogin() {
-    setComponentLevelLoader({ loading: true, id: "" });
     const res = await login(formData);
 
     console.log(res);
@@ -54,13 +54,11 @@ export default function Login() {
       setFormData(initialFormdata);
       Cookies.set("token", res?.finalData?.token);
       localStorage.setItem("user", JSON.stringify(res?.finalData?.user));
-      setComponentLevelLoader({ loading: false, id: "" });
     } else {
       toast.error(res.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
       setIsAuthUser(false);
-      setComponentLevelLoader({ loading: false, id: "" });
     }
   }
 
