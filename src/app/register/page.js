@@ -5,7 +5,6 @@ import SelectComponent from "@/components/FormElements/SelectComponent";
 import ComponentLevelLoader from "@/components/Loader/componentlevel";
 import Notification from "@/components/Notification";
 import { GlobalContext } from "@/context";
-// import { registerNewUser } from "@/services/register";
 import { registrationFormControls } from "@/utils";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
@@ -43,8 +42,6 @@ export default function Register() {
 
     async function handleRegisterOnSubmit() {
         setPageLevelLoader(true);
-        // const data = await registerNewUser(formData);
-
         if (data.success) {
             toast.success(data.message, {
                 position: toast.POSITION.TOP_RIGHT,
@@ -68,7 +65,7 @@ export default function Register() {
     }, [isAuthUser]);
 
     return (
-        <div className="bg-white relative">
+        <div className="bg-white text-black relative">
             <div className="flex flex-col items-center justify-between pt-0 pr-10 pb-0 pl-10 mt-8 mr-auto xl:px-5 lg:flex-row">
                 <div className="flex flex-col justify-center items-center w-full pr-10 pl-10 lg:flex-row">
                     <div className="w-full mt-10 mr-0 mb-0 ml-0 relative max-w-2xl lg:mt-0 lg:w-5/12">
