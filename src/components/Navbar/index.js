@@ -36,17 +36,17 @@ const Navbar = () => {
                     <div className='flex md:order-2 gap-2'>
                         {!isAdmin && isAuthUser ? (
                             <Fragment>
-                                <button>Account</button>
-                                <button>Cart</button>
+                                <button className='bg-black text-white px-3 py-2'>Account</button>
+                                <button className='bg-black text-white px-3 py-2'>Cart</button>
                             </Fragment>
                         ) : null}
                         {
                             user?.role === 'admin' ?
-                                (isAdmin ? <button>Client View</button> : <button>Admin View</button>)
+                                (isAdmin ? <button className='bg-black text-white px-3 py-2'>Client View</button> : <button className='bg-black text-white px-3 py-2'>Admin View</button>)
                                 : null
                         }
                         {
-                            isAuthUser ? <button>Logout</button> : <button>Login</button>
+                            isAuthUser ? <button className='bg-black text-white px-3 py-2'>Logout</button> : <button className='bg-black text-white px-3 py-2'>Login</button>
                         }
                     </div>
                     <div className='md:hidden'>
