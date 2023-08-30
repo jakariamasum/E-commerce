@@ -6,7 +6,7 @@ const configOptions = {
 const connectToDB=async()=>{
     const url=`mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0.yzkj8ly.mongodb.net/`
     mongoose
-    .connect(connectionUrl, configOptions)
+    .connect(url, configOptions)
     .then(() => console.log("Ecommerce database connected successfully!"))
     .catch((err) =>
       console.log(`Getting Error from DB connection ${err.message}`)

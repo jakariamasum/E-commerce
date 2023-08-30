@@ -5,6 +5,7 @@ import SelectComponent from "@/components/FormElements/SelectComponent";
 import ComponentLevelLoader from "@/components/Loader/componentlevel";
 import Notification from "@/components/Notification";
 import { GlobalContext } from "@/context";
+import { registerNewUser } from "@/sevices/register";
 import { registrationFormControls } from "@/utils";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
@@ -41,22 +42,7 @@ export default function Register() {
     console.log(isFormValid());
 
     async function handleRegisterOnSubmit() {
-        setPageLevelLoader(true);
-        if (data.success) {
-            toast.success(data.message, {
-                position: toast.POSITION.TOP_RIGHT,
-            });
-            setIsRegistered(true);
-            setPageLevelLoader(false);
-            setFormData(initialFormData);
-        } else {
-            toast.error(data.message, {
-                position: toast.POSITION.TOP_RIGHT,
-            });
-            setPageLevelLoader(false);
-            setFormData(initialFormData);
-        }
-
+        const data = await registerNewUser(formData);
         console.log(data);
     }
 
