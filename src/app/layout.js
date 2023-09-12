@@ -1,7 +1,7 @@
+import GlobalState from '@/context'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
-import GlobalState from '@/context'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <GlobalState>
           <Navbar/>
-          <main className='mt-[65px] flex flex-col min-h-screen'>{children}</main>
+          <main className='text-black flex min-h-screen flex-col mt-[80px]'>{children}</main>
         </GlobalState>
       </body>
     </html>
